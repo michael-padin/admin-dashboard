@@ -31,7 +31,11 @@ import { useStateContext } from "./context/ContextProvider";
 import "./App.css";
 
 function App() {
-  const activeMenu = useStateContext()?.activeMenu;
+  const stateContext = useStateContext();
+
+  if (stateContext == null) return <div>No context yet</div>;
+
+  const { activeMenu } = stateContext;
 
   return (
     <div className="">
