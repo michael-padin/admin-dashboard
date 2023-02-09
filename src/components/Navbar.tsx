@@ -52,28 +52,6 @@ const NavButton = ({
 );
 
 const Navbar = () => {
-  const stateContext = useStateContext();
-
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, []);
-  
-  useEffect(() => {
-    const handleResize = () => setScreenSize(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, []);
-
-  if (stateContext === null) return <div>No Context Yet</div>;
-
   const {
     activeMenu,
     setActiveMenu,
@@ -82,7 +60,25 @@ const Navbar = () => {
     handleClick,
     screenSize,
     setScreenSize,
-  } = stateContext;
+  } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setScreenSize]);
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setScreenSize]);
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">

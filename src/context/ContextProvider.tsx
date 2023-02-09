@@ -29,14 +29,24 @@ interface IContextProviderType {
   children: ReactNode;
 }
 
-const StateContext = createContext<IStateContextType | null>(null);
-
 const initialState = {
   chat: false,
   cart: false,
   userProfile: false,
   notification: false,
 };
+
+const StateContext = createContext<IStateContextType>({
+  activeMenu: false,
+  setActiveMenu: () => {},
+  
+  isClicked: initialState,
+  setIsClicked: () => {},
+  handleClick: () => {},
+  
+  screenSize: undefined,
+  setScreenSize: () => {},
+});
 
 export const ContextProvider: FC<IContextProviderType> = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState<boolean>(true);
