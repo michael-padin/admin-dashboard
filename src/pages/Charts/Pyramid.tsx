@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Pyramid = () => {
-  return (
-    <div>Pyramid</div>
-  )
-}
+  return <div>Pyramid</div>;
+};
 
-export default Pyramid
+export default Pyramid;

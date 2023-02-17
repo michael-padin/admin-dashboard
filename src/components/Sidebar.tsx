@@ -39,7 +39,9 @@ const Sidebar = () => {
               <button
                 type="button"
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
-                onClick={() => setActiveMenu((prevActiveMenu) : boolean => !prevActiveMenu)}
+                onClick={() =>
+                  setActiveMenu((prevActiveMenu): boolean => !prevActiveMenu)
+                }
               >
                 <MdOutlineCancel />
               </button>
